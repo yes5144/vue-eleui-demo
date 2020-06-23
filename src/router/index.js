@@ -8,7 +8,21 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    icon: 'home',
+    children: [
+      { path: 'hello', name: 'hello', component: () => import('../components/HelloWorld.vue') }
+    ]
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Home,
+    icon: '',
+    children: [
+      { path: 'dash01', name: 'dash01', component: () => import('../views/Dashboard/Dash01.vue') },
+      { path: 'dash02', name: 'dash02', component: () => import('../views/Dashboard/Dash02.vue') }
+    ]
   },
   {
     path: '/about',
