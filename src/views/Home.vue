@@ -46,26 +46,34 @@
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
-              <span>用户管理</span>
+              <span>资源管理</span>
             </template>
             <el-menu-item index="/users">
               <i class="el-icon-circle-check"></i>
-              <span>用户列表</span>
+              <span>资源列表</span>
+            </el-menu-item>
+            <el-menu-item index="/users">
+              <i class="el-icon-circle-check"></i>
+              <span>资源状态</span>
+            </el-menu-item>
+            <el-menu-item index="/users">
+              <i class="el-icon-circle-check"></i>
+              <span>资源同步</span>
             </el-menu-item>
           </el-submenu>
           <!-- 2 -->
           <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-location"></i>
-              <span>权限管理</span>
+              <span>项目管理</span>
             </template>
             <el-menu-item index="/roles">
               <i class="el-icon-circle-check"></i>
-              <span>角色列表</span>
+              <span>项目列表</span>
             </el-menu-item>
             <el-menu-item index="rights">
               <i class="el-icon-circle-check"></i>
-              <span>权限列表</span>
+              <span>项目部署</span>
             </el-menu-item>
           </el-submenu>
 
@@ -73,15 +81,19 @@
           <el-submenu index="3">
             <template slot="title">
               <i class="el-icon-location"></i>
-              <span>角色管理</span>
+              <span>系统管理</span>
             </template>
             <el-menu-item index="1-1">
               <i class="el-icon-circle-check"></i>
-              <span>用户列表</span>
+              <span>账号管理</span>
             </el-menu-item>
             <el-menu-item index="1-1">
               <i class="el-icon-circle-check"></i>
-              <span>用户列表</span>
+              <span>角色管理</span>
+            </el-menu-item>
+            <el-menu-item index="1-1">
+              <i class="el-icon-circle-check"></i>
+              <span>系统设置</span>
             </el-menu-item>
           </el-submenu>
         </el-menu>
@@ -102,7 +114,7 @@ export default {
   components: {
     // HelloWorld
   },
-  beforeCreate () {
+  beforeCreate() {
     const token = localStorage.getItem('token')
     if (!token) {
       console.log('token not exist')
@@ -110,7 +122,7 @@ export default {
     }
   },
   methods: {
-    handleSignout () {
+    handleSignout() {
       // clear token
       localStorage.clear()
       // msg logout succ
@@ -119,7 +131,6 @@ export default {
       this.$router.push({ name: 'Login' })
     }
   }
-
 }
 </script>
 

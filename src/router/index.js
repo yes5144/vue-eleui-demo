@@ -25,6 +25,57 @@ const routes = [
     ]
   },
   {
+    path: '/assets',
+    name: 'Assets',
+    component: Home,
+    icon: '',
+    children: [
+      { path: 'assetlist', name: 'assetlist', component: () => import('../views/Assets/AssetList.vue') },
+      { path: 'assetstate', name: 'assetstate', component: () => import('../views/Assets/AssetState.vue') },
+      { path: 'assetsync', name: 'assetsync', component: () => import('../views/Assets/AssetSync.vue') }
+    ]
+  },
+  {
+    path: '/projects',
+    name: 'Projects',
+    component: Home,
+    icon: '',
+    children: [
+      { path: 'projectlist', name: 'projectlist', component: () => import('../views/Projects/ProjectList.vue') },
+      { path: 'appdeploy', name: 'appdeploy', component: () => import('../views/Deploy/AppDeploy.vue') },
+    ]
+  },
+  {
+    path: '/monitor',
+    name: 'Monitor',
+    component: Home,
+    icon: '',
+    children: [
+      { path: 'monitorlist', name: 'monitorlist', component: () => import('../views/Monitor/MonitorList.vue') },
+    ]
+  },
+  {
+    path: '/alerm',
+    name: 'Alerm',
+    component: Home,
+    icon: '',
+    children: [
+      { path: 'alermhistory', name: 'alermhistory', component: () => import('../views/Alerm/AlermHistory.vue') },
+      { path: 'alermgroup', name: 'alermgroup', component: () => import('../views/Alerm/AlermGroup.vue') }
+    ]
+  },
+  {
+    path: '/system',
+    name: 'System',
+    component: Home,
+    icon: '',
+    children: [
+      { path: 'account', name: 'account', component: () => import('../views/System/Account.vue') },
+      { path: 'role', name: 'role', component: () => import('../views/System/Role.vue') },
+      { path: 'setting', name: 'setting', component: () => import('../views/System/Setting.vue') },
+    ]
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
