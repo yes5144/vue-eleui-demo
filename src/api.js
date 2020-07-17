@@ -1,6 +1,6 @@
 import axios from 'axios'
 import store from './store'
-import router from './routes'
+import router from './router'
 
 // localStorage.baseUrl = 'http://127.0.0.1:8080'
 localStorage.baseUrl = process.env.VUE_APP_BASE_URL
