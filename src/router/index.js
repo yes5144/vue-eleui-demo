@@ -96,4 +96,34 @@ const router = new VueRouter({
   routes
 })
 
+// 页面刷新时，重新赋值token和username
+if (window.localStorage.getItem('token')) {
+  store.commit("LOGIN", { token: window.localStorage.getItem('token'), user: window.localStorage.getItem('user') });
+}
+
+router.beforeEach((to, from, next) => {
+  if (to.path == '/login') {
+    store.commit("LOGOUT");
+  }
+  let token = store.state.token;
+  if (!token && to.path != '/login') {
+    next({
+      path: '/login',
+      //query: {redirect: to.fullPath}
+      query: { redirect: '/welcome' }
+    });
+  } else {
+    // // 判断是否需要折叠导航栏
+    // switch (to.path) {
+    //     case '/zabbix/map':
+    //         store.dispatch('collapsedClose');
+    //         break;
+    //     default:
+    //         store.dispatch('collapsedOpen');
+    // }
+    next();
+  }
+});
+
+
 export default router
