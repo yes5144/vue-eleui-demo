@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '../store'
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
@@ -106,11 +107,12 @@ router.beforeEach((to, from, next) => {
     store.commit("LOGOUT");
   }
   let token = store.state.token;
+  console.log("route gurd: ", token)
   if (!token && to.path != '/login') {
     next({
       path: '/login',
       //query: {redirect: to.fullPath}
-      query: { redirect: '/welcome' }
+      query: { redirect: '/hello' }
     });
   } else {
     // // 判断是否需要折叠导航栏

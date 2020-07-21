@@ -66,7 +66,12 @@ export default {
           } else {
             Cookies.set('token', res.data.token)
             sessionStorage.setItem('user', userinfo.account)
-            this.$router.push('/')
+            sessionStorage.setItem('token', res.data.token)
+            this.$store.commit('LOGIN', {
+              token: res.data.token,
+              user: userinfo.account
+            })
+            this.$router.push('/hello')
           }
         })
         .catch(function(res) {

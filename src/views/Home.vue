@@ -12,10 +12,23 @@
             <h3></h3>
           </div>
         </el-col>
-        <el-col :span="2">
+        <!-- <el-col :span="2">
           <div class="grid-content bg-purple loginOut">
             <a @click="handleSignout()">退出</a>
           </div>
+        </el-col>-->
+        <el-col :span="2" class="userinfo">
+          <el-dropdown trigger="hover">
+            <span class="el-dropdown-link userinfo-inner">
+              <img :src="this.userAvatar" />
+              {{username}}
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>我的消息</el-dropdown-item>
+              <el-dropdown-item>设置</el-dropdown-item>
+              <el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
         </el-col>
       </el-row>
     </el-header>
@@ -110,25 +123,40 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
+  data() {
+    return {
+      userAvatar: '',
+      username: 'kk'
+    }
+  },
   name: 'Home',
   components: {
     // HelloWorld
   },
   beforeCreate() {
-    const token = localStorage.getItem('token')
+    const token = sessionStorage.getItem('token')
     if (!token) {
       console.log('token not exist')
       // this.$router.push({ name: 'Login' })
     }
   },
   methods: {
-    handleSignout() {
+    logout() {
       // clear token
-      localStorage.clear()
+      sessionStorage.setItem('token', '')
       // msg logout succ
       this.$message.success('logout succ')
       // redirect to login
       this.$router.push({ name: 'Login' })
+    }
+  },
+  mounted() {
+    this.sysName = 'kitty'
+    this.logo = require('@/assets/logo.png')
+    var user = sessionStorage.getItem('user')
+    if (user) {
+      this.username = user
+      this.userAvatar = ''
     }
   }
 }
