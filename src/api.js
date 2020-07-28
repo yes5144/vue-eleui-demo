@@ -64,3 +64,18 @@ export const getUserInfo = () => {
 export const getNavigation = () => {
   return axios.get(`/api/v1/navigation`).then(res => res.data)
 }
+
+// accountSave
+export const accountSave = (params) => {
+  return axios.post(`/api/account/save`).then(res => res.data)
+}
+
+// accountDel
+export const accountDel = (params) => {
+  return axios.post(`/api/account/del`).then(res => res.data)
+}
+
+// accountFindPage
+export const accountFindPage = (params) => {
+  return axios.post(`/api/account/findpage`).then(res => res.data)
+}

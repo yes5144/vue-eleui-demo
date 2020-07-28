@@ -34,8 +34,30 @@ Mock.mock('http://localhost:8080/menu', {
 //   }
 // }
 
+// api.js --> /api/auth/login
 Mock.mock('http://localhost:8080/api/auth/login', 'post', {
     'code': 200,
     'data': { 'token': 'menu1313123' },
     'msg': 'your token'
+})
+
+// api.js --> /api/account/save
+Mock.mock('http://localhost:8080/api/account/save', 'post', {
+    'code': 200,
+    'data': {},
+    'msg': 'account save succ'
+})
+
+// api.js --> /api/account/del
+Mock.mock('http://localhost:8080/api/account/del', 'post', {
+    'code': 200,
+    'data': {},
+    'msg': 'account del succ'
+})
+
+// api.js --> /api/account/findpage
+Mock.mock('http://localhost:8080/api/account/findpage', 'post', {
+    'code': 200,
+    'data': { 'page': '123123' },
+    'msg': 'findpage succ'
 })

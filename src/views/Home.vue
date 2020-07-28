@@ -96,15 +96,15 @@
               <i class="el-icon-location"></i>
               <span>系统管理</span>
             </template>
-            <el-menu-item index="1-1">
+            <el-menu-item index="/system/account">
               <i class="el-icon-circle-check"></i>
               <span>账号管理</span>
             </el-menu-item>
-            <el-menu-item index="1-1">
+            <el-menu-item index="/system/role">
               <i class="el-icon-circle-check"></i>
               <span>角色管理</span>
             </el-menu-item>
-            <el-menu-item index="1-1">
+            <el-menu-item index="/system/setting">
               <i class="el-icon-circle-check"></i>
               <span>系统设置</span>
             </el-menu-item>
@@ -126,7 +126,7 @@ export default {
   data() {
     return {
       userAvatar: '',
-      username: 'kk'
+      username: 'kk',
     }
   },
   name: 'Home',
@@ -148,7 +148,7 @@ export default {
       this.$message.success('logout succ')
       // redirect to login
       this.$router.push({ name: 'Login' })
-    }
+    },
   },
   mounted() {
     this.sysName = 'kitty'
@@ -158,7 +158,7 @@ export default {
       this.username = user
       this.userAvatar = ''
     }
-  }
+  },
 }
 </script>
 

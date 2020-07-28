@@ -106,8 +106,9 @@ router.beforeEach((to, from, next) => {
   if (to.path == '/login') {
     store.commit("LOGOUT");
   }
-  let token = store.state.token;
-  console.log("route gurd: ", token)
+  // let token = store.state.token;
+  let token = sessionStorage.getItem('token')
+  // console.log("route gurd: ", token)
   if (!token && to.path != '/login') {
     next({
       path: '/login',
