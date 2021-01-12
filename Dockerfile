@@ -1,4 +1,4 @@
-FROM nginx:1.18.2
+FROM nginx
 
 COPY dist/ /usr/share/nginx/html/
 
